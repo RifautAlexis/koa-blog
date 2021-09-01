@@ -2,12 +2,11 @@
   "name": "koa-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.ts"
   },
-  "author": "",
+  "author": "Alexis Rifaut",
   "license": "ISC",
   "dependencies": {
     "@types/koa": "^2.13.4",
