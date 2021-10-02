@@ -13,6 +13,11 @@ Which is even more exciting ! :D
 # Vertical Slice Architecture ?
 Take a look at Jimmy Bogard and at MediaR. this last one is a bit more than just Vertical Slice Architecture. Have Fun !
 
+I didn't find much information about how to implement Vertical Slice Architecture in a Typescript/nodeJs environment. The only real useful source I found is the following (from the same guy) : 
+https://www.hakantuncer.com/2017/03/25/setting-up-continuous-delivery-for-a-node-dot-js-rest-api-part-2/
+AND
+https://github.com/hakant/TypeScriptCommandPattern
+
 # Commands
  - npm run start
 
