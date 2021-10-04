@@ -11,30 +11,27 @@ import { PutArticleResponse } from "../contracts/Responses/article/put-article.r
 @JsonController('/articles')
 export class ArticleController {
     @Get('')
-    async getOverview(@BuildRequest() request: GetArticlesRequest): Promise<GetArticlesResponse> {
+    async getOverview(@BuildRequest<GetArticlesRequest>(GetArticlesRequest) request: GetArticlesRequest): Promise<GetArticlesResponse> {
         return await executor.Execute<GetArticlesRequest, GetArticlesResponse>(request);
     }
 
     @Get('/:id')
-    async get(@BuildRequest() request: GetArticleByIdRequest): Promise<GetArticleByIdResponse> {
+    async get(@BuildRequest<GetArticleByIdRequest>(GetArticleByIdRequest) request: GetArticleByIdRequest): Promise<GetArticleByIdResponse> {
         return await executor.Execute<GetArticleByIdRequest, GetArticleByIdResponse>(request);
     }
 
     // more complex example
     @Put('/:id/:otherParam')
-    async updateTestFunction(@BuildRequest() request: PutArticleRequest): Promise<PutArticleResponse> {
+    async updateTestFunction(@BuildRequest<PutArticleRequest>(PutArticleRequest) request: PutArticleRequest): Promise<PutArticleResponse> {
         return await executor.Execute<PutArticleRequest, PutArticleResponse>(request);
     }
 }
 
-export function BuildRequest() {
+export function BuildRequest<T>(type: { new ({}): T }) {
     return createParamDecorator({
         required: false,
         value: action => {
-            return {
-                ...action.context.params,
-                ...action.request.body,
-            }
+            return new type({...action.context.params, ...action.request.body});
         },
     });
 }

@@ -1,7 +1,7 @@
 import { GetArticleByIdRequest } from "../../contracts/Requests/article/get-article-by-id.request";
 import { GetArticleByIdResponse } from "../../contracts/Responses/article/get-article-by-id.response";
 import { Handler } from "../handler";
-// import singletonContainer from "../handler-container";
+import singletonContainer from "../handler-container";
 
 export class GetArticleByIdHandler implements Handler<GetArticleByIdRequest, GetArticleByIdResponse> {
 
@@ -22,5 +22,5 @@ export class GetArticleByIdHandler implements Handler<GetArticleByIdRequest, Get
 
 }
 
-// const handler = new GetArticleByIdHandler();
-// singletonContainer.RegisterHandler<GetArticleByIdRequest, GetArticleByIdResponse>(new GetArticleByIdRequest, handler);
+const getArticleByIdHandler = new GetArticleByIdHandler();
+singletonContainer.RegisterHandler<GetArticleByIdRequest, GetArticleByIdResponse>(new GetArticleByIdRequest, getArticleByIdHandler);

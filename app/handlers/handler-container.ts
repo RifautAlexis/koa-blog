@@ -1,4 +1,4 @@
-import { Handler } from "./handler"
+import { Handler } from "./handler";
 
 class HandlerContainer {
     private kernel: Record<string, any> = [];
@@ -8,8 +8,7 @@ class HandlerContainer {
         this.kernel[`${requestName}`] = handler;    
     }
 
-    ResolveHandler<TRequest, TResponse>(request: TRequest): // Product
-    Handler<TRequest, TResponse> {
+    ResolveHandler<TRequest, TResponse>(request: TRequest): Handler<TRequest, TResponse> {
         const requestName: string = this.GetTypeName(request);
         return <Handler<TRequest, TResponse>>this.kernel[`${requestName}`];
     }

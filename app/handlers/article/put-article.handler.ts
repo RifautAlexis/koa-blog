@@ -1,7 +1,7 @@
 import { Handler } from "../handler";
 import { PutArticleRequest } from "../../contracts/Requests/article/put-article.request";
 import { PutArticleResponse } from "../../contracts/Responses/article/put-article.response";
-// import singletonContainer from "../handler-container";
+import singletonContainer from "../handler-container";
 
 export class PutArticleHandler implements Handler<PutArticleRequest, PutArticleResponse> {
 
@@ -14,5 +14,5 @@ export class PutArticleHandler implements Handler<PutArticleRequest, PutArticleR
 
 }
 
-// const handler = new PutArticleHandler();
-// singletonContainer.RegisterHandler<PutArticleRequest, PutArticleResponse>(new PutArticleRequest, handler);
+const putArticleHandler = new PutArticleHandler();
+singletonContainer.RegisterHandler<PutArticleRequest, PutArticleResponse>(new PutArticleRequest, putArticleHandler);

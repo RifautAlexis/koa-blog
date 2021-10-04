@@ -1,1 +1,6 @@
-export class GetArticlesRequest {}
+export class GetArticlesRequest {
+
+    constructor(request: Partial<GetArticlesRequest> = {}){
+        Object.assign(this, request);
+    };
+}

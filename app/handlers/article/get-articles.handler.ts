@@ -1,14 +1,14 @@
 import { GetArticlesResponse } from "../../contracts/Responses/article/get-articles.response";
 import { GetArticlesRequest } from "../../contracts/Requests/article/get-articles.request";
 import { Handler } from "../handler";
-// import singletonContainer from "../handler-container";
+import singletonContainer from "../handler-container";
 
 export class GetArticlesHandler implements Handler<GetArticlesRequest, GetArticlesResponse> {
 
     async Handle(_request: GetArticlesRequest): Promise<GetArticlesResponse> {
         
         const result: GetArticlesResponse = {
-            id: '1',
+            id: '9999999',
             title: 'Title01',
             description: 'Description01',
             authorName: 'authorName01',
@@ -21,5 +21,5 @@ export class GetArticlesHandler implements Handler<GetArticlesRequest, GetArticl
 
 }
 
-// const handler = new GetArticlesHandler();
-// singletonContainer.RegisterHandler<GetArticlesRequest, GetArticlesResponse>(GetArticlesRequest, handler);
+const getArticlesHandler = new GetArticlesHandler();
+singletonContainer.RegisterHandler<GetArticlesRequest, GetArticlesResponse>(new GetArticlesRequest, getArticlesHandler);
